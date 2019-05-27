@@ -76,7 +76,7 @@ public class SocketTest {
                 String time = df.format(System.currentTimeMillis());
                 String tablename = "point"+time;
                 IPositionPointDao positionPoint = new PositionPointDaoImpl();
-                positionPoint.createTable("point" + tablename);
+                positionPoint.createTable(tablename);
                 while (true) {                                   //循环接收、读取 Client 端发送过来的信息
                     if ((receiveMsg = in.readLine())!=null) {
                         System.out.println("receiveMsg:"+receiveMsg);
