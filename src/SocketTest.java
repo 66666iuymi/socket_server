@@ -75,17 +75,12 @@ public class SocketTest {
                 SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
                 String time = df.format(System.currentTimeMillis());
                 String tablename = "point"+time;
+                IPositionPointDao positionPoint = new PositionPointDaoImpl();
+                positionPoint.createTable("point" + tablename);
                 while (true) {                                   //循环接收、读取 Client 端发送过来的信息
                     if ((receiveMsg = in.readLine())!=null) {
                         System.out.println("receiveMsg:"+receiveMsg);
-                        IPositionPointDao positionPoint = new PositionPointDaoImpl();
-
-
-                        positionPoint.createTable("point" + tablename);
-
-
                         String[] receiveMsgs = receiveMsg.split(",");
-
                         if(receiveMsgs.length == 2){
                             i = i+1;
 
