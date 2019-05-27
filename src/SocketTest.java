@@ -15,7 +15,7 @@ import java.sql.*;
 
 
 public class SocketTest {
-    private static final int PORT = 9999;
+    private static final int PORT = 3389;
     private List<Socket> mList = new ArrayList<Socket>();
     private ServerSocket server = null;
     private ExecutorService mExecutorService = null;

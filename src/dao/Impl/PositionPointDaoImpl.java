@@ -18,7 +18,7 @@ public class PositionPointDaoImpl implements IPositionPointDao {
 
     @Override
     public boolean addPoint(PositionPoint positionPoint){
-        String sql = "insert into student values(?,?,?)";
+        String sql = "insert into positionpoint values(?,?,?)";
         Object[] params = {positionPoint.getSno(),positionPoint.getLongitude(),positionPoint.getLatitude()};
         return DBUtil.executeUpdate(sql, params);
     }
@@ -32,7 +32,7 @@ public class PositionPointDaoImpl implements IPositionPointDao {
         List<PositionPoint> students = new ArrayList<>();
 
         try {
-            String sql = "select * from student";
+            String sql = "select * from positionpoint";
             rs = DBUtil.executeQuery(sql,null);
             while (rs.next()) {
                 int no = rs.getInt("no");
