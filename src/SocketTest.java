@@ -72,7 +72,7 @@ public class SocketTest {
         public void run() {
             try {
                 int i = 0;
-                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
+                SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
                 String time = df.format(System.currentTimeMillis());
                 String tablename = "point"+time;
                 while (true) {                                   //循环接收、读取 Client 端发送过来的信息
