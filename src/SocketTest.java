@@ -1,3 +1,8 @@
+import dao.IPositionPointDao;
+import dao.Impl.PositionPointDaoImpl;
+import entity.PositionPoint;
+
+import javax.swing.text.Position;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -6,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.sql.*;
+
 
 public class SocketTest {
     private static final int PORT = 9999;
@@ -14,9 +21,13 @@ public class SocketTest {
     private ExecutorService mExecutorService = null;
     private String receiveMsg;
     private String sendMsg;
+    private int i = 0;
 
     public static void main(String[] args) {
         //System.out.println("Hello World!");
+
+
+
         new SocketTest();
     }
 
@@ -62,6 +73,20 @@ public class SocketTest {
                 while (true) {                                   //循环接收、读取 Client 端发送过来的信息
                     if ((receiveMsg = in.readLine())!=null) {
                         System.out.println("receiveMsg:"+receiveMsg);
+
+                        i = i+1;
+                        String[] receiveMsgs = receiveMsg.split(",");
+
+                        if(receiveMsgs.length == 2){
+                            IPositionPointDao positionPoint = new PositionPointDaoImpl();
+                            PositionPoint positionPoint1 = new PositionPoint();
+                            positionPoint1.setSno(i);
+                            positionPoint1.setLongitude(Double.valueOf(receiveMsgs[0]));
+                            positionPoint1.setLatitude(Double.valueOf(receiveMsgs[1]));
+
+                            positionPoint.addPoint(positionPoint1);
+                        }
+
                         if (receiveMsg.equals("0")) {
                             System.out.println("客户端请求断开连接");
                             printWriter.println("服务端断开连接"+"（服务器发送）");
