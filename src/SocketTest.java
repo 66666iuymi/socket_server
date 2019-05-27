@@ -7,6 +7,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.security.Provider;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -21,7 +22,7 @@ public class SocketTest {
     private ExecutorService mExecutorService = null;
     private String receiveMsg;
     private String sendMsg;
-    private int i = 0;
+    //private int i = 0;
 
     public static void main(String[] args) {
         //System.out.println("Hello World!");
@@ -70,21 +71,30 @@ public class SocketTest {
         @Override
         public void run() {
             try {
+                int i = 0;
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
+                String time = df.format(System.currentTimeMillis());
+                String tablename = "point"+time;
                 while (true) {                                   //循环接收、读取 Client 端发送过来的信息
                     if ((receiveMsg = in.readLine())!=null) {
                         System.out.println("receiveMsg:"+receiveMsg);
+                        IPositionPointDao positionPoint = new PositionPointDaoImpl();
 
-                        i = i+1;
+
+                        positionPoint.createTable("point" + tablename);
+
+
                         String[] receiveMsgs = receiveMsg.split(",");
 
                         if(receiveMsgs.length == 2){
-                            IPositionPointDao positionPoint = new PositionPointDaoImpl();
+                            i = i+1;
+
                             PositionPoint positionPoint1 = new PositionPoint();
                             positionPoint1.setSno(i);
                             positionPoint1.setLongitude(Double.valueOf(receiveMsgs[0]));
                             positionPoint1.setLatitude(Double.valueOf(receiveMsgs[1]));
 
-                            positionPoint.addPoint(positionPoint1);
+                            positionPoint.addPoint(positionPoint1,tablename);
                         }
 
                         if (receiveMsg.equals("0")) {
@@ -104,6 +114,5 @@ public class SocketTest {
                 e.printStackTrace();
             }
         }
-
     }
 }

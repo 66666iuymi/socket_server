@@ -17,12 +17,20 @@ import static util.DBUtil.connection;
 public class PositionPointDaoImpl implements IPositionPointDao {
 
     @Override
-    public boolean addPoint(PositionPoint positionPoint){
-        String sql = "insert into positionpoint values(?,?,?)";
+    public boolean addPoint(PositionPoint positionPoint, String tablename){
+        String sql = "insert into "+tablename+" values(?,?,?)";
         Object[] params = {positionPoint.getSno(),positionPoint.getLongitude(),positionPoint.getLatitude()};
         return DBUtil.executeUpdate(sql, params);
     }
 
+    @Override
+    public void createTable(String tablename) {
+        String sql = "create table " + tablename +
+                "(sno int primary key," +
+                "longitude double," +
+                "latitude double)";
+        DBUtil.executeUpdate(sql, null);
+    }
 
     @Override
     public List<PositionPoint> queryAll() {
