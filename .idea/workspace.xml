@@ -6,12 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c16c6047-d029-4b89-ad82-2287ea2da45c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/SocketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SocketTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/IPositionPointDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/IPositionPointDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/Impl/PositionPointDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/Impl/PositionPointDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/DBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/DBUtil.java" afterDir="false" />
-    </list>
+    <list default="true" id="c16c6047-d029-4b89-ad82-2287ea2da45c" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,8 +40,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SocketTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="100" column="94" lean-forward="true" selection-start-line="100" selection-start-column="94" selection-end-line="100" selection-end-column="94" />
+            <state relative-caret-position="2394">
+              <caret line="126" column="58" selection-start-line="126" selection-start-column="58" selection-end-line="126" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#227#235#0" expanded="true" />
@@ -221,7 +216,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559051051085" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559051485501" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../jdbc" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
@@ -275,12 +270,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558865165306</updated>
-      <workItem from="1558865170561" duration="47122000" />
+      <workItem from="1558865170561" duration="47520000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47122000" />
+    <option name="totallyTimeSpent" value="47520000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -292,7 +287,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
@@ -300,7 +295,7 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16950959" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16950959" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
@@ -309,7 +304,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.329718" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -382,8 +377,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SocketTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="100" column="94" lean-forward="true" selection-start-line="100" selection-start-column="94" selection-end-line="100" selection-end-column="94" />
+        <state relative-caret-position="2394">
+          <caret line="126" column="58" selection-start-line="126" selection-start-column="58" selection-end-line="126" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#227#235#0" expanded="true" />
