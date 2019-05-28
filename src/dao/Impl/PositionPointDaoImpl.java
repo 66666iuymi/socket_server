@@ -33,24 +33,24 @@ public class PositionPointDaoImpl implements IPositionPointDao {
     }
 
     @Override
-    public List<PositionPoint> queryAll() {
+    public List<PositionPoint> queryAll(String tablename) {
 
         ResultSet rs = null;
         PositionPoint positionPoint = null;
-        List<PositionPoint> students = new ArrayList<>();
+        List<PositionPoint> positionPoints = new ArrayList<>();
 
         try {
-            String sql = "select * from positionpoint";
+            String sql = "select * from "+ tablename;
             rs = DBUtil.executeQuery(sql,null);
             while (rs.next()) {
-                int no = rs.getInt("no");
+                int no = rs.getInt("sno");
                 double longitude = rs.getDouble("longitude");
                 double latitude = rs.getDouble("latitude");
                 positionPoint = new PositionPoint(no, longitude, latitude);
-                students.add(positionPoint);
+                positionPoints.add(positionPoint);
                 //System.out.println(students);
             }
-            return students;
+            return positionPoints;
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
@@ -73,5 +73,37 @@ public class PositionPointDaoImpl implements IPositionPointDao {
 
     }
 
+    @Override
+    public List<String> getTableName() {
+        ResultSet rs = null;
+        PositionPoint positionPoint = null;
+        List<PositionPoint> students = new ArrayList<>();
+        List<String> lists = new ArrayList<>();
+        try {
+            String sql = "show tables";
+            rs = DBUtil.executeQuery(sql,null);
+            while (rs.next()) {
+                lists.add(rs.getString("Tables_in_test"));
+            }
+            return lists;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            try {
+                if(rs != null)
+                    rs.close();
+                if(rs != null)
+                    pstmt.close();
+                if(rs != null)
+                    connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
 
+        }
+    }
 }

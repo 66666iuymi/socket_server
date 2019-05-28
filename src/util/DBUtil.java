@@ -8,9 +8,9 @@ import java.util.List;
 
 public class DBUtil {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/test1?serverTimezone=UTC";
+    private static final String URL = "jdbc:mysql://localhost:3306/test?serverTimezone=UTC";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "123456";
+    private static final String PASSWORD = "";
     public static Connection connection = null;
     public static PreparedStatement pstmt = null;
     public static ResultSet rs = null;

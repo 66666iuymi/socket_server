@@ -9,9 +9,11 @@ public interface IPositionPointDao {
     public boolean addPoint(PositionPoint positionPoint, String tablename);
     //根据sno找到待修改的人，吧这个人修改成student
     //public boolean updateStudentBySno(int sno, Student student);
-    public List<PositionPoint> queryAll();
+    public List<PositionPoint> queryAll(String tablename);
 
     public void createTable(String tablename);
+
+    public List<String> getTableName();
     //public Student queryStudentBySNo(int sno);
     //public boolean isExist(int sno);
     //public int getTotalCount();

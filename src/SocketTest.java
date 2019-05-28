@@ -76,11 +76,35 @@ public class SocketTest {
                 String time = df.format(System.currentTimeMillis());
                 String tablename = "point"+time;
                 IPositionPointDao positionPoint = new PositionPointDaoImpl();
-                positionPoint.createTable(tablename);
+                //positionPoint.createTable(tablename);
+
                 while (true) {                                   //循环接收、读取 Client 端发送过来的信息
                     if ((receiveMsg = in.readLine())!=null) {
                         System.out.println("receiveMsg:"+receiveMsg);
                         String[] receiveMsgs = receiveMsg.split(",");
+                        String[] receiveMsgs1 = receiveMsg.split(" ");
+
+                        if (receiveMsg.equals("1")){
+                            positionPoint.createTable(tablename);
+                        }
+                        if (receiveMsg.equals("2")){
+                            List<String> lists = positionPoint.getTableName();
+                            for (int j = 0; j < lists.size(); j++) {
+                                printWriter.println(lists.get(j));
+                            }
+                            printWriter.println("endl");
+                        }
+                        if (receiveMsgs1.length == 2 && receiveMsgs1[0].equals("3")) {
+                            System.out.println(receiveMsgs1[1]);
+                            List<PositionPoint> positionPoints = positionPoint.queryAll(receiveMsgs1[1]);
+                            for (int j = 0; j < positionPoints.size(); j++) {
+                                String position = Double.toString(positionPoints.get(j).getLatitude()) + "," +
+                                        Double.toString(positionPoints.get(j).getLongitude());
+                                printWriter.println(position);
+                                System.out.println(position);
+                            }
+                            printWriter.println("endl");
+                        }
                         if(receiveMsgs.length == 2){
                             i = i+1;
 
@@ -88,20 +112,19 @@ public class SocketTest {
                             positionPoint1.setSno(i);
                             positionPoint1.setLongitude(Double.valueOf(receiveMsgs[0]));
                             positionPoint1.setLatitude(Double.valueOf(receiveMsgs[1]));
-
                             positionPoint.addPoint(positionPoint1,tablename);
                         }
 
                         if (receiveMsg.equals("0")) {
                             System.out.println("客户端请求断开连接");
-                            printWriter.println("服务端断开连接"+"（服务器发送）");
+                            //printWriter.println("服务端断开连接"+"（服务器发送）");
                             mList.remove(socket);
                             in.close();
                             socket.close();                         //接受 Client 端的断开连接请求，并关闭 Socket 连接
                             break;
                         } else {
-                            sendMsg = "我已接收：" + receiveMsg + "（服务器发送）";
-                            printWriter.println(sendMsg);           //向 Client 端反馈、发送信息
+                            //sendMsg = "我已接收：" + receiveMsg + "（服务器发送）";
+                            //printWriter.println(sendMsg);           //向 Client 端反馈、发送信息
                         }
                     }
                 }
