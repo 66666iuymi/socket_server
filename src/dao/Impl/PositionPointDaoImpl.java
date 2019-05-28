@@ -83,7 +83,7 @@ public class PositionPointDaoImpl implements IPositionPointDao {
             String sql = "show tables";
             rs = DBUtil.executeQuery(sql,null);
             while (rs.next()) {
-                lists.add(rs.getString("Tables_in_test"));
+                lists.add(rs.getString("Tables_in_test1"));
             }
             return lists;
         } catch (SQLException e) {
